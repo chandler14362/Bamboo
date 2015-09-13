@@ -1,5 +1,7 @@
 package bamboo;
 
+import bamboo.module.Struct;
+
 /**
  * Created by stowellc17 on 9/9/15.
  */
@@ -18,6 +20,10 @@ public final class Module {
     public static native Module readDCFile(final String filename);
 
     public native boolean parseDCFile(final String filename);
+
+    public native int getNumStructs();
+
+    public native Struct getStruct(final int n);
 
     public native long calculateHash();
 

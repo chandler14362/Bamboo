@@ -194,7 +194,8 @@ set(WIRE_FILES
 source_group("Wire" FILES ${WIRE_FILES})
 
 set(JAVA_FILES
-  bindings/java/wrappers/bamboo_Module.cpp)
+  bindings/java/wrappers/bamboo_Module.cpp
+  bindings/java/wrappers/bamboo_module_Struct.cpp)
 source_group("java" FILES ${JAVA_FILES})
 
 set(BAMBOO_SOURCES

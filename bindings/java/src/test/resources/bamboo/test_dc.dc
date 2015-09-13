@@ -1,1 +1,1 @@
-dclass
+struct TestStruct {}

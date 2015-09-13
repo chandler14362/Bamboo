@@ -29,3 +29,18 @@ JNIEXPORT jlong JNICALL Java_bamboo_Module_calculateHash
     bamboo::Module *module = jbamboo::get_handle<bamboo::Module>(env, obj);
     return bamboo::legacy_hash(module);
 }
+
+JNIEXPORT jint JNICALL Java_bamboo_Module_getNumStructs
+  (JNIEnv *env, jobject obj)
+{
+    bamboo::Module *module = jbamboo::get_handle<bamboo::Module>(env, obj);
+    return module->num_structs();
+}
+
+JNIEXPORT jobject JNICALL Java_bamboo_Module_getStruct
+  (JNIEnv *env, jobject obj, jint n)
+{
+    bamboo::Module *module = jbamboo::get_handle<bamboo::Module>(env, obj);
+    bamboo::Struct *dstruct = module->get_struct(n);
+    return jbamboo::init_obj_with_handle(env, jbamboo::struct_cls, (jlong)dstruct);
+}
