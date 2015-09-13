@@ -10,9 +10,17 @@ import static org.junit.Assert.assertEquals;
  */
 public class ModuleTest {
 
+    public String getDCPath() {
+        boolean windows = System.getProperty("os.name").toLowerCase().startsWith("win");
+        String path = getClass().getResource("test_dc.dc").getPath();
+        if (windows)
+            path = path.substring(1, path.length());
+        return path;
+    }
+
     @Test
     public void testReadDCFile() {
-        Module module = Module.readDCFile(getClass().getResource("test_dc.dc").getPath());
+        Module module = Module.readDCFile(getDCPath());
         assertEquals(module.calculateHash(), 24861);
 
         assertEquals(module.getNumKeywords(), 1);
