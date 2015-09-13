@@ -113,8 +113,13 @@ if(GENERATE_PARSER)
   endif(FLEX_FOUND)
 endif()
 
+find_package(JNI)
+
 ## Source files
-include_directories(src)
+include_directories(
+  src
+  bindings/java/wrappers
+  ${JNI_INCLUDE_DIRS})
 
 # no dependencies
 set(BITS_FILES
@@ -188,13 +193,18 @@ set(WIRE_FILES
   src/wire/DatagramIterator.cpp)
 source_group("Wire" FILES ${WIRE_FILES})
 
+set(JAVA_FILES
+  bindings/java/wrappers/bamboo_Module.cpp)
+source_group("java" FILES ${JAVA_FILES})
+
 set(BAMBOO_SOURCES
   ${BITS_FILES}
   ${VALUES_FILES}
   ${MODULE_FILES}
   ${DCFILE_FILES}
   ${TRAITS_FILES}
-  ${WIRE_FILES})
+  ${WIRE_FILES}
+  ${JAVA_FILES})
 
 option(BUILD_SHARED_LIBS "Builds shared libraries instead of static libraries.")
 option(BUILD_SHARED_AND_STATIC "Build both shared and static libraries.")
