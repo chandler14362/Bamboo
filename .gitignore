@@ -1,2 +1,6 @@
 build/
 *.pyc
+*.idea
+*.class
+*.iml
+bindings/java/target
