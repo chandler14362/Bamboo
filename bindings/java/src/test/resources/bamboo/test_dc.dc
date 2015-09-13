@@ -1,1 +1,3 @@
+keyword testKeyword;
+
 struct TestStruct {}

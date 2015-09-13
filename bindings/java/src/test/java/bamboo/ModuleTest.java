@@ -14,8 +14,12 @@ public class ModuleTest {
     public void testReadDCFile() {
         Module module = Module.readDCFile(getClass().getResource("test_dc.dc").getPath());
         assertEquals(module.calculateHash(), 24861);
-        assertEquals(module.getNumStructs(), 1);
 
+        assertEquals(module.getNumKeywords(), 1);
+        assertEquals(module.hasKeyword(""), false);
+        assertEquals(module.getKeyword(0), "testKeyword");
+
+        assertEquals(module.getNumStructs(), 1);
         Struct struct = module.getStruct(0);
         assertEquals(struct.getName(), "TestStruct");
         assertEquals(struct.getId(), 0);

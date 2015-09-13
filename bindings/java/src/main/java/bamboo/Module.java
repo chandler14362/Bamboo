@@ -21,6 +21,12 @@ public final class Module {
 
     public native boolean parseDCFile(final String filename);
 
+    public native boolean hasKeyword(final String keyword);
+
+    public native int getNumKeywords();
+
+    public native String getKeyword(final int n);
+
     public native int getNumStructs();
 
     public native Struct getStruct(final int n);
